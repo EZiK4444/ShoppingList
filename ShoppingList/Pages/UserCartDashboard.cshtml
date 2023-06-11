@@ -1,0 +1,51 @@
+﻿@page
+@model ShoppingList.Pages.UserCartDashboardModel
+@{
+}
+
+<div class="containter">
+    <div class="row">
+        <h3>Welcome, @Model.User.FullName.</h3>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">User details</div>
+                <div class="card-body">
+                    <p>Fullname: @Model.User.FullName</p>
+                    <p>Phone number: @Model.User.PhoneNumber</p>
+                    <p>E-mail: @Model.User.Email</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <br />
+        <a class="btn btn-success" asp-page="/NewProduct">New product</a>
+        <br />
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Amount</th>
+                    <th>In cart</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.ProductName</td>
+                        <td>@product.ProductAmount</td>
+                        <td>@product.IsInCart</td>
+                        <td><a class="btn btn-warning" asp-page="/Edit" asp-route-prdId="@product.ProductId">Edit</a>
+                            <a class="btn btn-danger">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

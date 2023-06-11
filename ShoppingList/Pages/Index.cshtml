@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">What are we going to buy today?</h1>
+    <br />
+    <p>Please login below to access your shopping cart:</p>
+</div>
+
+<div class="container">
+    <div id="loginSection">
+        <form method="post">
+            <div class="form-outline mb-4">
+                <label class="form-label" for="uname">Username</label>
+                <input type="text" id="uname" class="form-control" name="Username"/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="psw">Password</label>
+                <input type="password" id="psw" class="form-control" name="Password" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+            @if (Model.IsError)
+            {
+                <p style="color:red">Username or password was wrong.</p>
+            }
+        </form>
+    </div>
+</div>
