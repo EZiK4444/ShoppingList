@@ -6,5 +6,6 @@
         public string? ProductName { get; set; }
         public int ProductAmount { get; set; }
         public bool IsInCart { get; set; }
+        public int UserId { get; set; }
     }
 }

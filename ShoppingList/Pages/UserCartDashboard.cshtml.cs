@@ -13,9 +13,8 @@ namespace ShoppingList.Pages
 
         public void OnGet()
         {
-            var usrId = UserId;
-            User = Data.Users.FirstOrDefault(x => x.UserId == usrId) ?? new User();
-            Products = DataProduct.Products.ToList();
+            User = Data.Users.FirstOrDefault(x => x.UserId == UserId) ?? new User();
+            Products = DataProduct.Products.ToList().FindAll(x => x.UserId == UserId);
         }
     }
 }
